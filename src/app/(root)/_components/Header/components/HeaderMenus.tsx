@@ -7,6 +7,7 @@ import { setModal } from "@/redux/slices/utils.slice";
 import { useAppDispatch } from "@/redux/store";
 import { useMutation } from "@tanstack/react-query";
 import Link from "next/link";
+import { useEffect } from "react";
 
 function HeaderMenus() {
   const dispatch = useAppDispatch();
@@ -27,6 +28,11 @@ function HeaderMenus() {
       alert("로그아웃에 실패하였습니다");
     }
   };
+
+  useEffect(() => {
+    const data = API.auth.refreshToken();
+    // 그래서 이렇게 받은 response를 통해서 내가 기 로그인 여부를 어떻게 확인하지?
+  }, []);
 
   return (
     <div className="ml-auto flex items-center gap-x-4">

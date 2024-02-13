@@ -18,10 +18,18 @@ async function logOut() {
   return isSuccess;
 }
 
+async function refreshToken() {
+  const response = await webClient.get("/auth/refresh-token");
+  const data = response.data;
+  console.log(data);
+  return data;
+}
+
 const auth = {
   signUp,
   logIn,
   logOut,
+  refreshToken,
 };
 
 export default auth;
