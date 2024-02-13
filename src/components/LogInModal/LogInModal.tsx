@@ -16,21 +16,26 @@ function LogInModal() {
   const { logIn } = useAuth();
 
   const handleClickLogIn = async () => {
-    await mutateAsync({ email, password });
-    logIn();
-
-    const action = setModal(null);
-    dispatch(action);
+    const isSuccess = await mutateAsync({ email, password });
+    if (isSuccess) {
+      logIn();
+      const action = setModal(null);
+      dispatch(action);
+    } else {
+      alert("로그인에 실패하였습니다");
+    }
   };
 
   return (
     <Modal title="로그인하기">
       <input
+        type="text"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         className="border"
       />
       <input
+        type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         className="border"
