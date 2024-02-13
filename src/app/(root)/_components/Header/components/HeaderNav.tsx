@@ -4,7 +4,7 @@ function HeaderNav() {
   return (
     <nav className="ml-20">
       <ul className="flex gap-x-4">
-        <HeaderNavItem href="/communities" label="BRANDS" />
+        <HeaderNavItem href="/brands" label="BRANDS" />
       </ul>
     </nav>
   );
