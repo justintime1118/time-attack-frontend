@@ -1,3 +1,5 @@
+export const revalidate = 1; // revalidate every minute
+
 import API from "@/api";
 import ProductCardsList from "@/components/ProductCardsList";
 
@@ -9,9 +11,7 @@ async function getProducts() {
 
 async function TrendingProducts() {
   const products = await getProducts();
-  return (
-    <ProductCardsList title="이 주의 인기 강의" products={products || []} />
-  );
+  return <ProductCardsList title="Trending" products={products || []} />;
 }
 
 export default TrendingProducts;
