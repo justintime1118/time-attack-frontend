@@ -10,6 +10,7 @@ function HeaderMenus() {
   const dispatch = useAppDispatch();
   const { isLoggedIn, logOut } = useAuth();
 
+  // TODO: 모달 창 열리기 아직 구현 안됨
   const handleClickLogIn = () => {
     const action = setModal(<LogInModal />);
     dispatch(action);

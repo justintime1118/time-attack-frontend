@@ -1,4 +1,4 @@
-import { CartItem } from "@/types/CartItem.type";
+import { CartItem, Product } from "@/types/CartItem.type";
 import { createSlice } from "@reduxjs/toolkit";
 
 type CartStore = {
@@ -11,14 +11,14 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    // addItem(state, action: { type: string; payload: Lecture }) {
-    //   const newCartItem: CartItem = {
-    //     id: "",
-    //     count: 1,
-    //     lecture: action.payload,
-    //   };
-    //   state.items.push(newCartItem);
-    // },
+    addItem(state, action: { type: string; payload: Product }) {
+      const newCartItem: CartItem = {
+        id: "",
+        count: 1,
+        product: action.payload,
+      };
+      state.items.push(newCartItem);
+    },
     removeItem() {},
     clearItems(state) {
       state.items = [];
@@ -27,4 +27,4 @@ const cartSlice = createSlice({
 });
 
 export const cartReducer = cartSlice.reducer;
-export const { /*addItem,*/ removeItem, clearItems } = cartSlice.actions;
+export const { addItem, removeItem, clearItems } = cartSlice.actions;
