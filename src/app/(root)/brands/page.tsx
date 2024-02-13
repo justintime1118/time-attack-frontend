@@ -1,10 +1,38 @@
-import Page from "@/components/Page";
+"use client";
 
-// TODO: 전체 브랜드와 브랜드별 상품을 보여주어야 합니다.
-// TODO:  `All`이 선택되어 있을 경우 전체 상품을 보여주어야 합니다.
-// TODO:  특정 브랜드가 선택되었을 경우에는 해당 브랜드의 상품만을 보여주어야 합니다.
-function page() {
-  return <Page>브랜드 별 둘러보기</Page>;
+import Page from "@/components/Page";
+import { useSearchParams } from "next/navigation";
+import AllProducts from "../_components/AllProducts";
+import BrandProducts from "../_components/BrandProducts";
+import BrandList from "./_component/BrandList";
+
+function ByBrandPage() {
+  const searchParams = useSearchParams();
+  const brandId = Number(searchParams.get("brandId"));
+
+  return (
+    <Page>
+      <section>
+        <h3 className=" p-10 text-3xl font-bold flex justify-center items-center mb-10 mt-10">
+          Brands
+        </h3>
+      </section>
+      <BrandList />
+      {brandId ? (
+        <>
+          <section>
+            <BrandProducts title="" brandId={brandId} />
+          </section>
+        </>
+      ) : (
+        <>
+          <section>
+            <AllProducts title="" />
+          </section>
+        </>
+      )}
+    </Page>
+  );
 }
 
-export default page;
+export default ByBrandPage;
