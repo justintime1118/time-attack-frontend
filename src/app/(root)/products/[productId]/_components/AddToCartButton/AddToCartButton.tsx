@@ -2,7 +2,7 @@
 
 import { addItem } from "@/redux/slices/cart.slice";
 import { useAppDispatch } from "@/redux/store";
-import { Product } from "@/types/CartItem.type";
+import { Product } from "@/types/Product.type";
 
 interface AddToCartButtonProps {
   product: Product;
