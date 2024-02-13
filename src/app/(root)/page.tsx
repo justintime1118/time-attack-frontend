@@ -1,10 +1,10 @@
 import Page from "@/components/Page";
-import TrendingProducts from "./_components/TrendingProducts";
+import AllProducts from "./_components/AllProducts";
 
 export default function HomePage() {
   return (
     <Page>
-      <TrendingProducts />
+      <AllProducts title="Trending" />
     </Page>
   );
 }
