@@ -24,9 +24,15 @@ function SignUpPage() {
     if (pwValue !== pw2Value)
       return alert("비밀번호와 비밀번호 확인이 일치하지 않습니다");
 
-    API.auth.signUp({ email: emailValue, password: pwValue });
-
-    logIn();
+    const isSuccess = await API.auth.signUp({
+      email: emailValue,
+      password: pwValue,
+    });
+    if (isSuccess) {
+      logIn();
+    } else {
+      alert("회원가입에 실패하였습니다~!");
+    }
   };
 
   return (
