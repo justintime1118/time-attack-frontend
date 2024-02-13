@@ -12,9 +12,16 @@ async function logIn(dto: { email: string; password: string }) {
   return isSuccess;
 }
 
+async function logOut() {
+  const response = await webClient.delete("/auth/log-out");
+  const isSuccess = response.data.success;
+  return isSuccess;
+}
+
 const auth = {
   signUp,
   logIn,
+  logOut,
 };
 
 export default auth;
