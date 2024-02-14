@@ -1,4 +1,6 @@
-import { CartItem, Product } from "@/types/CartItem.type";
+import { CartItem } from "@/types/CartItem.type";
+import { Product } from "@/types/Product.type";
+
 import { createSlice } from "@reduxjs/toolkit";
 
 type CartStore = {
