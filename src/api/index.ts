@@ -5,6 +5,7 @@ import products from "./products.api";
 
 export const webClient = axios.create({
   baseURL: "https://port-0-express-server-17xco2nlsidlckv.sel5.cloudtype.app",
+  withCredentials: true,
 });
 
 const API = { auth, products, brands };
